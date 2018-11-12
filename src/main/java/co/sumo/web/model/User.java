@@ -1,0 +1,63 @@
+package co.sumo.web.model;
+
+import javax.persistence.Entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+//creation de la table
+
+@Entity
+@Table(name = "user")
+public class User {
+	
+	//Id pour la clé primaire
+	@JsonIgnore
+	@Id
+	//Il va générer de lui-même la valeur de la clé primaire
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long idUser;
+	
+	private String nomUser;
+	
+	private String prenomUser;
+	
+	private String emailUser;
+
+	public Long getIdUser() {
+		return idUser;
+	}
+
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
+	}
+
+	public String getNomUser() {
+		return nomUser;
+	}
+
+	public void setNomUser(String nomUser) {
+		this.nomUser = nomUser;
+	}
+
+	public String getPrenomUser() {
+		return prenomUser;
+	}
+
+	public void setPrenomUser(String prenomUser) {
+		this.prenomUser = prenomUser;
+	}
+
+	public String getEmailUser() {
+		return emailUser;
+	}
+
+	public void setEmailUser(String emailUser) {
+		this.emailUser = emailUser;
+	}
+	
+	
+}
