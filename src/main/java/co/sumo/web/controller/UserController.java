@@ -3,13 +3,13 @@ package co.sumo.web.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.sumo.web.model.User;
-import co.sumo.web.repository.UserRepository;
+
 import co.sumo.web.service.UserService;
 
 //@CrossOrigin("http://localhost:8080")

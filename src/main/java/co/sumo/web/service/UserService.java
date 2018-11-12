@@ -3,12 +3,15 @@ package co.sumo.web.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import co.sumo.web.model.User;
 import co.sumo.web.repository.UserRepository;
 
 
+
 //cette classe va contenir les methodes du jpa repository custom ou non et nous allons les traiter et les donner un corps à chacune avec algorytmie et conditions
+@Service
 public class UserService {
 	
 	
