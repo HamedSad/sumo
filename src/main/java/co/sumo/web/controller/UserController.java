@@ -41,7 +41,7 @@ public class UserController {
 	}
 	
 	@CrossOrigin	
-	@GetMapping("/user")
+	@GetMapping("/user/all")
 	public List<User> findUsers(){
 	return userServ.findAllUsers();
 		
