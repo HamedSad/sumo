@@ -1,5 +1,6 @@
 package co.sumo.web.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.GeneratedValue;
@@ -10,12 +11,11 @@ import javax.persistence.Table;
 
 //creation de la table
 
-@Entity
+@Entity(name = "user")
 @Table(name = "user")
 public class User {
 	
 	//Id pour la clé primaire
-	@JsonIgnore
 	@Id
 	//Il va générer de lui-même la valeur de la clé primaire
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,7 +25,9 @@ public class User {
 	
 	private String prenomUser;
 	
+	
 	private String emailUser;
+	
 
 	public Long getIdUser() {
 		return idUser;
@@ -57,6 +59,12 @@ public class User {
 
 	public void setEmailUser(String emailUser) {
 		this.emailUser = emailUser;
+	}
+
+	@Override
+	public String toString() {
+		return "User [idUser=" + idUser + ", nomUser=" + nomUser + ", prenomUser=" + prenomUser + ", emailUser="
+				+ emailUser + "]";
 	}
 	
 	
