@@ -28,25 +28,33 @@ public class UserService {
 		this.userRepo = userRepo;
 	}
 	
-	
+	//Méthode findAllUsers en liste pour obtenir tous les utilisateurs  
 	public List<User> findAllUsers(){
 		return userRepo.findAll();
 	}
 	
+	//Méthode findById pour récupérer un user 
 	public User findById(Long id) {
 		return userRepo.findOne(id);
 	}
 
-
+	//Méthode saveUser pour enregistrer un user dans la BDD
 	public User saveUser (User user) {
 		// TODO Auto-generated method stub
 		return userRepo.save(user);
 	}
-	
-	//public User createId(Long id) {
-	//	return userRepo.save(id);
-	//}
 
-
+	//Méthode delete pour supprimer un user	
+	public void removeById(Long id) {
+		User user = userRepo.findOne(id);
+		userRepo.delete(user);	
+	}
 	
+	//Méthode pour update les données d'un user
+	public User updateUserById(Long id) {
+		User user = userRepo.findOne(id);
+		return userRepo.save(user);
+		
+	}
+
 }

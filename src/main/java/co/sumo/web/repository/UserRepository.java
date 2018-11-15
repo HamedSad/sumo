@@ -14,7 +14,12 @@ import co.sumo.web.model.User;
 //du moment qu'on ne change pas les arguments d'une methode (customisation) on a pas besoin d'y laisser la signature
 public interface UserRepository extends JpaRepository <User, Long> {
 
+	
+
+
 //public boolean existBiteEtBurne(String nom);
 //ce qui compte ici c'est le mot clef 'exist' le type de la methode boolean seul lárgument et le reste du nom de la methode peuvent etre custom
 //nous pourrions tres bien utiliser 'findBy' ou autre mot clef
+	
+	
 }

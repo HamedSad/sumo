@@ -1,11 +1,11 @@
 package co.sumo.web.controller;
 
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,12 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.sumo.web.model.Activite;
-import co.sumo.web.model.User;
 import co.sumo.web.service.ActiviteService;
 
 //Signaler que les uri sont des embranchements - Fusion de l'annotation Controller et response body
 @RestController
-
 @RequestMapping("/api")
 
 public class ActiviteController {
@@ -52,5 +50,17 @@ public class ActiviteController {
 	@PostMapping("/activite")
 	Activite saveActivite(@Valid @RequestBody Activite activite) {
 		return activiteServ.saveActivite(activite);
+	}
+	
+	@CrossOrigin
+	@DeleteMapping("/activite/{id}")
+
+	ResponseEntity<Activite> deleteUser(@PathVariable(value = "id") long id) {
+		Activite activite = activiteServ.findById(id);
+
+		if (activite == null)
+			return ResponseEntity.notFound().build();
+		activiteServ.removeById(id);
+		return ResponseEntity.ok().build();
 	}
 }

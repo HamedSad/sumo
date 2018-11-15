@@ -66,6 +66,11 @@ public class User {
 		return "User [idUser=" + idUser + ", nomUser=" + nomUser + ", prenomUser=" + prenomUser + ", emailUser="
 				+ emailUser + "]";
 	}
+
+	public void delete(User user) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

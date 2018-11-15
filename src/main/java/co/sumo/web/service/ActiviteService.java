@@ -24,18 +24,25 @@ public class ActiviteService {
 		this.activiteRepo = activiteRepo;
 	}
 	
+	//Méthode findAllActivities en liste pour obtenir toutes les activités
 	public List<Activite> findAllActivities(){
 		return activiteRepo.findAll();
 	}
 	
+	//Méthode findById pour récupérer une activite
 	public Activite findById(Long activite) {
 		return activiteRepo.findOne(activite);
 	}
 
-
+	//Méthode saveActivite pour enregistrer une nouvelle activite dans la BDD
 	public Activite saveActivite (Activite activite) {
-		// TODO Auto-generated method stub
 		return activiteRepo.save(activite);
+	}
+
+	//Méthode delete pour supprimer une activite	
+	public void removeById(Long id) {
+		Activite activite = activiteRepo.findOne(id);
+		activiteRepo.delete(activite);	
 	}
 
 }
