@@ -1,11 +1,14 @@
 package co.sumo.web.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -65,11 +68,6 @@ public class User {
 	public String toString() {
 		return "User [idUser=" + idUser + ", nomUser=" + nomUser + ", prenomUser=" + prenomUser + ", emailUser="
 				+ emailUser + "]";
-	}
-
-	public void delete(User user) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	
