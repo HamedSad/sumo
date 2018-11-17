@@ -13,9 +13,9 @@ import javax.persistence.Table;
 
 public class Sport {
 	
-	
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Id private long idSport;
+	private long idSport;
 	
 	private String nomSport;
 	

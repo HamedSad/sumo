@@ -16,7 +16,7 @@ public class ActiviteService {
 	//injection de dependance grace à l'annotation Autowired et l'utilisation d'un constructeur
 	@Autowired
 	
-	//On passe un objet de type UserRepository en attribut de notre classe UserService
+	//On passe un objet de type UserRepository en attribut de notre classe ActiviteService
 	private ActiviteRepository activiteRepo; 
 	
 	//On utilise un constructeur pour set l'attribut en variable de classe

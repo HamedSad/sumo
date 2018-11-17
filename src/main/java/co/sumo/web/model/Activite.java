@@ -1,6 +1,5 @@
 package co.sumo.web.model;
 
-import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,34 +22,48 @@ public class Activite{
  //Creation de l'Id en auto-increment et il va lui même s'occuper d'incrementer la valeur de la clé primaire
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
-		private long idActivite;
+		private long id;
 		
 		private String nomActivite;
 		
-		private int idSport;
+		@ManyToOne
+		private Sport sport;
+		
+		@ManyToOne
+		private Lieu lieu;
 
 		private int descriptionActivite;
 		
 		private int noteActivite;
 		
 
-		public int getIdSport() {
-			return idSport;
+		public long getId() {
+			return id;
 		}
 
 
-		public void setIdSport(int idSport) {
-			this.idSport = idSport;
+		public Lieu getLieu() {
+			return lieu;
 		}
 
 
-		public long getIdActivite() {
-			return idActivite;
+		public void setLieu(Lieu lieu) {
+			this.lieu = lieu;
 		}
 
 
-		public void setIdActivite(long idActivite) {
-			this.idActivite = idActivite;
+		public Sport getSport() {
+			return sport;
+		}
+
+
+		public void setSport(Sport sport) {
+			this.sport = sport;
+		}
+
+
+		public void setId(long id) {
+			this.id = id;
 		}
 		
 		public String getNomActivite() {

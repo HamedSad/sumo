@@ -22,19 +22,19 @@ public class Lieu {
  //Creation de l'Id en auto-increment et il va lui même s'occuper d'incrementer la valeur de la clé primaire
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
-		private long id;
+		private long idLieu;
 		
 		private String nomVille;
 		
 		private String nomPays;
 				
 
-		public long getId() {
-			return id;
+		public long getIdLieu() {
+			return idLieu;
 		}
-		
-		public void setId(long idLieu) {
-			this.id = id;
+
+		public void setIdLieu(long idLieu) {
+			this.idLieu = idLieu;
 		}
 
 		public String getNomVille() {

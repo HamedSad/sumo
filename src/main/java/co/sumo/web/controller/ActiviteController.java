@@ -27,7 +27,7 @@ public class ActiviteController {
 	@Autowired
 
 	// On passe un objet de type UserRepository en attribut de notre classe
-	// UserController
+	// ActiviteController
 	ActiviteService activiteServ;
 
 	// On utilise un constructeur pour set l'attribut en variable de classe

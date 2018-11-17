@@ -5,24 +5,35 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import co.sumo.web.model.Activite;
 import co.sumo.web.model.Sport;
 import co.sumo.web.service.SportService;
 
+//Signaler que les uri sont des embranchements - Fusion de l'annotation Controller et response body
 @RestController
 @RequestMapping ("/api")
 
 public class SportController {
 
+	// injection de dependance grace à l'annotation Autowired et l'utilisation d'un
+	// constructeur
 	@Autowired
+	
+	// On passe un objet de type UserRepository en attribut de notre classe
+	// SportController
 	SportService sportServ;
 	
+	// On utilise un constructeur pour set l'attribut en variable de classe
 	SportController(SportService sportServ){
 		this.sportServ = sportServ;
 	}
@@ -34,9 +45,29 @@ public class SportController {
 	}
 	
 	@CrossOrigin
+	@GetMapping("/sport/{id}")
+	public Sport getSportById(@PathVariable(value = "id") long id) {
+		return sportServ.findById(id);
+	}
+	
+	@CrossOrigin
 	@PostMapping("/sport")
 	Sport saveSport(@Valid @RequestBody Sport sport) {
 		return sportServ.saveSport(sport);
 	}
+	
+	@CrossOrigin
+	@DeleteMapping("/sport/{id}")
+
+	ResponseEntity<Sport> deleteSport(@PathVariable(value = "id") long id) {
+		Sport sport = sportServ.findById(id);
+
+		if (sport == null)
+			return ResponseEntity.notFound().build();
+		sportServ.removeById(id);
+		return ResponseEntity.ok().build();
+	}
+
+	
 	
 }
