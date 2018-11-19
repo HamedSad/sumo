@@ -23,8 +23,18 @@ public class Sport {
 	
 	private String specificitesSport;
 	
+	private long idEquipement;
 	
 	
+	
+	public long getIdEquipement() {
+		return idEquipement;
+	}
+
+	public void setIdEquipement(long idEquipement) {
+		this.idEquipement = idEquipement;
+	}
+
 	public long getIdSport() {
 		return idSport;
 	}

@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.sumo.web.model.User;
@@ -47,6 +49,7 @@ public class UserController {
 
 	@CrossOrigin
 	@GetMapping("/user/all")
+	
 	public List<User> findUsers() {
 		return userServ.findAllUsers();
 	}
@@ -77,13 +80,22 @@ public class UserController {
 		}
 	}
 
+
+	// ResponseEntity reponse qui va etre donnée apres le update	
+	//User updatetUserById(@PathVariable(value="id")long id, User user ) {
+		//user = userServ.findById(id);
+		//return userServ.saveUser(user);
+	
+	//}
 	@CrossOrigin
 	@PutMapping("/user/{id}")
-	// ResponseEntity reponse qui va etre donnée apres le update	
-	User updatetUserById(@PathVariable(value="id")long id, User user ) {
-		user = userServ.findById(id);
-		return userServ.saveUser(user);
-	
+	public User updateUserById(@PathVariable("id") long id, @RequestBody String nomUser, @RequestParam String prenomUser, @RequestParam String emailUser) {
+		User user = userServ.findById(id);
+		user.setNomUser(nomUser);
+		user.setPrenomUser(prenomUser);
+		user.setEmailUser(emailUser);
+		userServ.saveUser(user);
+		return user;
 	}
 	
 	

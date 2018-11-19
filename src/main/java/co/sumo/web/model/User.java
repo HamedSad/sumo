@@ -28,10 +28,8 @@ public class User {
 	
 	private String prenomUser;
 	
-	
 	private String emailUser;
 	
-
 	public Long getIdUser() {
 		return idUser;
 	}

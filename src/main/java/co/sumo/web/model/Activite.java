@@ -34,8 +34,18 @@ public class Activite{
 
 		private int descriptionActivite;
 		
-		private int noteActivite;
-		
+			
+		private String urlImageActivite;
+
+		public String getUrlImageActivite() {
+			return urlImageActivite;
+		}
+
+
+		public void setUrlImageActivite(String urlImageActivite) {
+			this.urlImageActivite = urlImageActivite;
+		}
+
 
 		public long getId() {
 			return id;
@@ -81,14 +91,6 @@ public class Activite{
 
 		public void setDescriptionActivite(int descriptionActivite) {
 			this.descriptionActivite = descriptionActivite;
-		}
-
-		public int getNoteActivite() {
-			return noteActivite;
-		}
-
-		public void setNoteActivite(int noteActivite) {
-			this.noteActivite = noteActivite;
 		}
 		
 
