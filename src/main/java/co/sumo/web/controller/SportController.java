@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -54,6 +55,31 @@ public class SportController {
 	@PostMapping("/sport")
 	Sport saveSport(@Valid @RequestBody Sport sport) {
 		return sportServ.saveSport(sport);
+	}
+	
+	@CrossOrigin
+	@PutMapping("/sport/{id}")
+	ResponseEntity<Sport> updateSport(@PathVariable(value = "id") long id, @Valid @RequestBody Sport sport){
+	
+		Sport sportToUpdate = sportServ.findById(id);
+	
+	if(sportToUpdate == null) 
+		return ResponseEntity.notFound().build();
+	
+	if(sport.getNomSport() !=null)
+		sportToUpdate.setNomSport(sport.getNomSport());
+		
+	if(sport.getSaisonSport() !=null)
+		sportToUpdate.setSaisonSport(sport.getSaisonSport());
+		
+	if(sport.getSpecificitesSport() !=null)
+		sportToUpdate.setSpecificitesSport(sport.getSpecificitesSport());
+	
+	
+	
+	Sport updatedSport = sportServ.saveSport(sportToUpdate);
+	return ResponseEntity.ok(updatedSport);
+	
 	}
 	
 	@CrossOrigin

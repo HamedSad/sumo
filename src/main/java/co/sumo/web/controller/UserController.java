@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import co.sumo.web.model.Sport;
 import co.sumo.web.model.User;
 
 import co.sumo.web.service.UserService;
@@ -87,16 +88,33 @@ public class UserController {
 		//return userServ.saveUser(user);
 	
 	//}
+
 	@CrossOrigin
 	@PutMapping("/user/{id}")
-	public User updateUserById(@PathVariable("id") long id, @RequestBody String nomUser, @RequestParam String prenomUser, @RequestParam String emailUser) {
-		User user = userServ.findById(id);
-		user.setNomUser(nomUser);
-		user.setPrenomUser(prenomUser);
-		user.setEmailUser(emailUser);
-		userServ.saveUser(user);
-		return user;
+	ResponseEntity<User> updateUser(@PathVariable(value = "id") long id, @Valid @RequestBody User user){
+	
+		User userToUpdate = userServ.findById(id);
+	
+	if(userToUpdate == null) 
+		return ResponseEntity.notFound().build();
+	
+	if(user.getNomUser() !=null)
+		userToUpdate.setNomUser(user.getNomUser());
+		
+	if(user.getPrenomUser() !=null)
+		userToUpdate.setPrenomUser(user.getPrenomUser());
+		
+	if(user.getEmailUser() !=null)
+		userToUpdate.setEmailUser(user.getEmailUser());
+	
+	
+	
+	User updatedUser = userServ.saveUser(userToUpdate);
+	return ResponseEntity.ok(updatedUser);
+	
 	}
+	
+	
 	
 	
 }
