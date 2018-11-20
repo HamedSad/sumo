@@ -16,7 +16,7 @@ public class SportService {
 	//injection de dependance grace à l'annotation Autowired et l'utilisation d'un constructeur
 	@Autowired
 	
-	//On passe un objet de type UserRepository en attribut de notre classe SportService
+	//On passe un objet de type SportRepository en attribut de notre classe SportService
 	private SportRepository sportRepo;
 	
 	//On utilise un constructeur pour set l'attribut en variable de classe
