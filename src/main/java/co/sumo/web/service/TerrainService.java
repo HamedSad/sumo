@@ -35,7 +35,7 @@ public class TerrainService {
 	}
 	
 	//Méthode saveterrain pour enregistrer un terrain dans la BDD
-	public Terrain saveterrain (Terrain terrain) {
+	public Terrain saveTerrain (Terrain terrain) {
 		// TODO Auto-generated method stub
 		return terrainRepo.save(terrain);
 	}

@@ -13,16 +13,18 @@ public class Terrain {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idCommentaire;
+	private long idTerrain;
 	
 	private String nomTerrain;
+	
+	
 
-	public long getIdCommentaire() {
-		return idCommentaire;
+	public long getIdTerrain() {
+		return idTerrain;
 	}
 
-	public void setIdCommentaire(long idCommentaire) {
-		this.idCommentaire = idCommentaire;
+	public void setIdTerrain(long idTerrain) {
+		this.idTerrain = idTerrain;
 	}
 
 	public String getNomTerrain() {
