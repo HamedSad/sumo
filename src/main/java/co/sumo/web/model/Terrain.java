@@ -18,7 +18,6 @@ public class Terrain {
 	private String nomTerrain;
 	
 	
-
 	public long getIdTerrain() {
 		return idTerrain;
 	}

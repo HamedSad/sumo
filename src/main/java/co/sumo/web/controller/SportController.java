@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.sumo.web.model.Activite;
 import co.sumo.web.model.Sport;
 import co.sumo.web.service.SportService;
 
