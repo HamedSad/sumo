@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -54,30 +55,25 @@ public class EquipementController {
 		return equipementServ.saveEquipement(equipement);
 	}
 	
-	//@CrossOrigin
-	//@PutMapping("/equipement/{id}")
-	//ResponseEntity<Sport> updateSport(@PathVariable(value = "id") long id, @Valid @RequestBody Equipement equipement){
+	@CrossOrigin
+	@PutMapping("/equipement/{id}")
+	ResponseEntity <Equipement> updateEquipement(@PathVariable(value = "id") long id, @Valid @RequestBody Equipement equipement){
 	
-	//	Equipement equipementToUpdate = equipementServ.findById(id);
+	Equipement equipementToUpdate = equipementServ.findById(id);
 	
-	//if(equipementToUpdate == null) 
-	//	return ResponseEntity.notFound().build();
+	if(equipementToUpdate == null) 
+	return ResponseEntity.notFound().build();
 	
-	//if(equipement.getNomSport() !=null)
-	//	equipementToUpdate.setNomSport(equipement.getNomSport());
+	if(equipement.getNomEquipement() !=null)
+		equipementToUpdate.setNomEquipement(equipement.getNomEquipement());
 		
-	//if(equipement.getSaisonSport() !=null)
-	//	equipementToUpdate.setSaisonSport(equipement.getSaisonSport());
+	if(equipement.getUrlPhotoEquipement() !=null)
+		equipementToUpdate.setUrlPhotoEquipement(equipement.getUrlPhotoEquipement());
 		
-	//if(equipement.getSpecificitesSport() !=null)
-	//	equipementToUpdate.setSpecificitesSport(equipement.getSpecificitesSport());
+	Equipement updatedEquipement = equipementServ.saveEquipement(equipementToUpdate);
+	return ResponseEntity.ok(updatedEquipement);
 	
-	
-	
-	//Equipement updatedEquipement = equipementServ.saveEquipement(equipementToUpdate);
-	//return ResponseEntity.ok(updatedEquipement);
-	
-	//}
+	}
 	
 	@CrossOrigin
 	@DeleteMapping("/equipement/{id}")

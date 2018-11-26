@@ -37,8 +37,6 @@ public class Sport {
 	@ManyToOne
 	private Equipement equipement;
 
-
-
 	public Terrain getTerrain() {
 		return terrain;
 	}

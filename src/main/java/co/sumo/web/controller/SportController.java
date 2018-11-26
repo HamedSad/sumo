@@ -67,6 +67,12 @@ public class SportController {
 	
 	if(sport.getNomSport() !=null)
 		sportToUpdate.setNomSport(sport.getNomSport());
+	
+	if(sport.getDescriptionSport() !=null)
+		sportToUpdate.setDescriptionSport(sport.getDescriptionSport());
+	
+	if(sport.getUrlImageSport() !=null)
+		sportToUpdate.setUrlImageSport(sport.getUrlImageSport());
 		
 	if(sport.getSaisonSport() !=null)
 		sportToUpdate.setSaisonSport(sport.getSaisonSport());

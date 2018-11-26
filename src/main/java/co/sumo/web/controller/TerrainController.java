@@ -51,30 +51,22 @@ public class TerrainController {
 		return terrainServ.saveTerrain(terrain);
 	}
 	
-	//@CrossOrigin
-	//@PutMapping("/terrain/{id}")
-	//ResponseEntity<Terrain> updateTerrain(@PathVariable(value = "id") long id, @Valid @RequestBody Terrain terrain){
+	@CrossOrigin
+	@PutMapping("/terrain/{id}")
+	ResponseEntity<Terrain> updateTerrain(@PathVariable(value = "id") long id, @Valid @RequestBody Terrain terrain){
 	
-	//	Terrain terrainToUpdate = terrainServ.findById(id);
+	Terrain terrainToUpdate = terrainServ.findById(id);
 	
-	//if(terrainToUpdate == null) 
-	//	return ResponseEntity.notFound().build();
+	if(terrainToUpdate == null) 
+		return ResponseEntity.notFound().build();
 	
-	//if(terrain.getNomSport() !=null)
-	//	terrainToUpdate.setNomSport(terrain.getNomSport());
-		
-	//if(terrain.getSaisonSport() !=null)
-	//	terrainToUpdate.setSaisonSport(terrain.getSaisonSport());
-		
-	//if(terrain.getSpecificitesSport() !=null)
-	//	terrainToUpdate.setSpecificitesSport(terrain.getSpecificitesSport());
+	if(terrain.getNomTerrain() !=null)
+		terrainToUpdate.setNomTerrain(terrain.getNomTerrain());	
 	
+	Terrain updatedTerrain = terrainServ.saveTerrain(terrainToUpdate);
+		return ResponseEntity.ok(updatedTerrain);
 	
-	
-	//Terrain updatedTerrain = terrainServ.saveTerrain(terrainToUpdate);
-	//	return ResponseEntity.ok(updatedTerrain);
-	
-	//}
+	}
 	
 	@CrossOrigin
 	@DeleteMapping("/terrain/{id}")
