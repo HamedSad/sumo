@@ -23,30 +23,19 @@ public class Sport {
 	@ManyToOne
 	private Terrain terrain;
 	
-	@ManyToOne
-	private User user;
-	
 	private String descriptionSport;
 	
 	private String urlImageSport;
 	
-	private long idCommentaire;
+	@ManyToOne
+	Commentaire commentaire;
 	
 	private String saisonSport;
 	
-	private String specificitesSport;
+	private String reglesSport;
 	
 	@ManyToOne
 	private Equipement equipement;
-	
-	
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 
 
@@ -66,14 +55,13 @@ public class Sport {
 		this.descriptionSport = descriptionSport;
 	}
 
-	public long getIdCommentaire() {
-		return idCommentaire;
+	public Commentaire getCommentaire() {
+		return commentaire;
 	}
 
-	public void setIdCommentaire(long idCommentaire) {
-		this.idCommentaire = idCommentaire;
+	public void setCommentaire(Commentaire commentaire) {
+		this.commentaire = commentaire;
 	}
-
 
 	public Equipement getEquipement() {
 		return equipement;
@@ -115,14 +103,15 @@ public class Sport {
 		this.saisonSport = saisonSport;
 	}
 
-	public String getSpecificitesSport() {
-		return specificitesSport;
+	public String getReglesSport() {
+		return reglesSport;
 	}
 
-	public void setSpecificitesSport(String specificitesSport) {
-		this.specificitesSport = specificitesSport;
+	public void setReglesSport(String reglesSport) {
+		this.reglesSport = reglesSport;
 	}
-	
+
+
 	
 
 }

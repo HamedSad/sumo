@@ -71,8 +71,8 @@ public class SportController {
 	if(sport.getSaisonSport() !=null)
 		sportToUpdate.setSaisonSport(sport.getSaisonSport());
 		
-	if(sport.getSpecificitesSport() !=null)
-		sportToUpdate.setSpecificitesSport(sport.getSpecificitesSport());
+	if(sport.getReglesSport() !=null)
+		sportToUpdate.setReglesSport(sport.getReglesSport());
 	
 	
 	
