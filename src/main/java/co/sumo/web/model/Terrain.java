@@ -17,7 +17,27 @@ public class Terrain {
 	
 	private String nomTerrain;
 	
+	private String dimensionsTerrain;
 	
+	private String urlPhotoTerrain;
+	
+	
+	public String getDimensionsTerrain() {
+		return dimensionsTerrain;
+	}
+
+	public void setDimensionsTerrain(String dimensionsTerrain) {
+		this.dimensionsTerrain = dimensionsTerrain;
+	}
+
+	public String getUrlPhotoTerrain() {
+		return urlPhotoTerrain;
+	}
+
+	public void setUrlPhotoTerrain(String urlPhotoTerrain) {
+		this.urlPhotoTerrain = urlPhotoTerrain;
+	}
+
 	public long getIdTerrain() {
 		return idTerrain;
 	}

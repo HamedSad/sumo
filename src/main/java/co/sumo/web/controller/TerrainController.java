@@ -63,6 +63,12 @@ public class TerrainController {
 	if(terrain.getNomTerrain() !=null)
 		terrainToUpdate.setNomTerrain(terrain.getNomTerrain());	
 	
+	if(terrain.getDimensionsTerrain() !=null)
+		terrainToUpdate.setDimensionsTerrain(terrain.getDimensionsTerrain());
+	
+	if(terrain.getUrlPhotoTerrain() !=null)
+		terrainToUpdate.setUrlPhotoTerrain(terrain.getUrlPhotoTerrain());
+	
 	Terrain updatedTerrain = terrainServ.saveTerrain(terrainToUpdate);
 		return ResponseEntity.ok(updatedTerrain);
 	

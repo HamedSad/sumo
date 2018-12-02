@@ -20,7 +20,7 @@ import co.sumo.web.model.Equipement;
 import co.sumo.web.service.EquipementService;
 
 @RestController
-@RequestMapping("/api/sport")
+@RequestMapping("/api")
 
 public class EquipementController {
 	
