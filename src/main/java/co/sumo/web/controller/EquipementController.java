@@ -49,6 +49,13 @@ public class EquipementController {
 		return equipementServ.findById(id);
 	}
 	
+	//pour obtenir les equipements en fonction de l'id du sport
+	@CrossOrigin
+	@GetMapping("/sport/{id}/equipement")
+	public Equipement getEquipementByIdSport(@PathVariable(value = "id") long id) {
+		return equipementServ.findById(id);
+	}
+	
 	@CrossOrigin
 	@PostMapping("/equipement")
 	Equipement saveEquipement(@Valid @RequestBody Equipement equipement) {
@@ -64,11 +71,35 @@ public class EquipementController {
 	if(equipementToUpdate == null) 
 	return ResponseEntity.notFound().build();
 	
-	if(equipement.getNomEquipement() !=null)
-		equipementToUpdate.setNomEquipement(equipement.getNomEquipement());
+	if(equipement.getNomEquipement1() !=null)
+		equipementToUpdate.setNomEquipement1(equipement.getNomEquipement1());
 		
-	if(equipement.getUrlPhotoEquipement() !=null)
-		equipementToUpdate.setUrlPhotoEquipement(equipement.getUrlPhotoEquipement());
+	if(equipement.getUrlPhotoEquipement1() !=null)
+		equipementToUpdate.setUrlPhotoEquipement1(equipement.getUrlPhotoEquipement1());
+	
+	if(equipement.getNomEquipement2() !=null)
+		equipementToUpdate.setNomEquipement2(equipement.getNomEquipement2());
+		
+	if(equipement.getUrlPhotoEquipement2() !=null)
+		equipementToUpdate.setUrlPhotoEquipement2(equipement.getUrlPhotoEquipement2());
+	
+	if(equipement.getNomEquipement3() !=null)
+		equipementToUpdate.setNomEquipement3(equipement.getNomEquipement3());
+		
+	if(equipement.getUrlPhotoEquipement3() !=null)
+		equipementToUpdate.setUrlPhotoEquipement3(equipement.getUrlPhotoEquipement3());
+	
+	if(equipement.getNomEquipement4() !=null)
+		equipementToUpdate.setNomEquipement4(equipement.getNomEquipement4());
+		
+	if(equipement.getUrlPhotoEquipement4() !=null)
+		equipementToUpdate.setUrlPhotoEquipement4(equipement.getUrlPhotoEquipement4());
+	
+	if(equipement.getNomEquipement5() !=null)
+		equipementToUpdate.setNomEquipement5(equipement.getNomEquipement5());
+		
+	if(equipement.getUrlPhotoEquipement5() !=null)
+		equipementToUpdate.setUrlPhotoEquipement5(equipement.getUrlPhotoEquipement5());
 		
 	Equipement updatedEquipement = equipementServ.saveEquipement(equipementToUpdate);
 	return ResponseEntity.ok(updatedEquipement);

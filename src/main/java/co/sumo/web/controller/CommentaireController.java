@@ -40,9 +40,15 @@ public class CommentaireController {
 	}
 	
 	@CrossOrigin
-	//@GetMapping("sport/{id}/commentaire") pour obtenir le commentaire en fonction de l'id du sport
 	@GetMapping("/commentaire/{id}")
 	public Commentaire getCommentaireById(@PathVariable(value = "id") long id) {
+		return commentaireServ.findById(id);
+	}
+	
+	@CrossOrigin
+	//pour obtenir le commentaire en fonction de l'id du sport
+	@GetMapping("sport/{id}/commentaire") 
+	public Commentaire getCommentaireByIdSport(@PathVariable(value = "id") long id) {
 		return commentaireServ.findById(id);
 	}
 	
