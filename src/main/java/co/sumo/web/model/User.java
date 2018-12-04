@@ -30,6 +30,16 @@ public class User {
 	
 	private String emailUser;
 	
+	private String passwordUser;
+	
+	public String getPasswordUser() {
+		return passwordUser;
+	}
+
+	public void setPasswordUser(String passwordUser) {
+		this.passwordUser = passwordUser;
+	}
+
 	public Long getIdUser() {
 		return idUser;
 	}
