@@ -20,9 +20,10 @@ import co.sumo.web.model.Equipement;
 import co.sumo.web.service.EquipementService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/equipement")
 
 public class EquipementController {
+	
 	
 	// injection de dependance grace à l'annotation Autowired et l'utilisation d'un
 	// constructeur
@@ -37,31 +38,35 @@ public class EquipementController {
 		this.equipementServ = equipementServ;
 	}
 	
+	//Methode pour afficher la liste des équipements en fonction d'un sport
 	@CrossOrigin
-	@GetMapping("/equipement/all")
+	@GetMapping("sport/{idSport}")
+	public List<Equipement> findEquipementBySport(@PathVariable(value = "idSport") long idSport){
+		return equipementServ.findEquipementsBySport(idSport);
+	}
+	
+	//Methode pour afficher la liste de tous les équipements
+	@CrossOrigin
+	@GetMapping("/all")
 	public List<Equipement> findEquipement() {
 		return equipementServ.findAllEquipement();
 	}
 	
+	//Methode pour afficher équipement en fonction de son Id
 	@CrossOrigin
 	@GetMapping("/equipement/{id}")
 	public Equipement getEquipementById(@PathVariable(value = "id") long id) {
 		return equipementServ.findById(id);
 	}
 	
-	//pour obtenir les equipements en fonction de l'id du sport
-	@CrossOrigin
-	@GetMapping("/sport/{id}/equipement")
-	public Equipement getEquipementByIdSport(@PathVariable(value = "id") long id) {
-		return equipementServ.findById(id);
-	}
-	
+	//Methode pour ajouter un équipement
 	@CrossOrigin
 	@PostMapping("/equipement")
 	Equipement saveEquipement(@Valid @RequestBody Equipement equipement) {
 		return equipementServ.saveEquipement(equipement);
 	}
 	
+	//Methode pour modifier le contenu d'un équipement
 	@CrossOrigin
 	@PutMapping("/equipement/{id}")
 	ResponseEntity <Equipement> updateEquipement(@PathVariable(value = "id") long id, @Valid @RequestBody Equipement equipement){
@@ -71,49 +76,28 @@ public class EquipementController {
 	if(equipementToUpdate == null) 
 	return ResponseEntity.notFound().build();
 	
-	if(equipement.getNomEquipement1() !=null)
-		equipementToUpdate.setNomEquipement1(equipement.getNomEquipement1());
+	if(equipement.getNomEquipement() !=null)
+		equipementToUpdate.setNomEquipement(equipement.getNomEquipement());
 		
-	if(equipement.getUrlPhotoEquipement1() !=null)
-		equipementToUpdate.setUrlPhotoEquipement1(equipement.getUrlPhotoEquipement1());
+	if(equipement.getUrlPhotoEquipement() !=null)
+		equipementToUpdate.setUrlPhotoEquipement(equipement.getUrlPhotoEquipement());
 	
-	if(equipement.getNomEquipement2() !=null)
-		equipementToUpdate.setNomEquipement2(equipement.getNomEquipement2());
-		
-	if(equipement.getUrlPhotoEquipement2() !=null)
-		equipementToUpdate.setUrlPhotoEquipement2(equipement.getUrlPhotoEquipement2());
-	
-	if(equipement.getNomEquipement3() !=null)
-		equipementToUpdate.setNomEquipement3(equipement.getNomEquipement3());
-		
-	if(equipement.getUrlPhotoEquipement3() !=null)
-		equipementToUpdate.setUrlPhotoEquipement3(equipement.getUrlPhotoEquipement3());
-	
-	if(equipement.getNomEquipement4() !=null)
-		equipementToUpdate.setNomEquipement4(equipement.getNomEquipement4());
-		
-	if(equipement.getUrlPhotoEquipement4() !=null)
-		equipementToUpdate.setUrlPhotoEquipement4(equipement.getUrlPhotoEquipement4());
-	
-	if(equipement.getNomEquipement5() !=null)
-		equipementToUpdate.setNomEquipement5(equipement.getNomEquipement5());
-		
-	if(equipement.getUrlPhotoEquipement5() !=null)
-		equipementToUpdate.setUrlPhotoEquipement5(equipement.getUrlPhotoEquipement5());
+
 		
 	Equipement updatedEquipement = equipementServ.saveEquipement(equipementToUpdate);
 	return ResponseEntity.ok(updatedEquipement);
 	
 	}
 	
+	//Methode pour supprimer un équipement par son Id
 	@CrossOrigin
-	@DeleteMapping("/equipement/{id}")
+	@DeleteMapping("/{id}")
 
 	ResponseEntity<Equipement> deleteEquipement(@PathVariable(value = "id") long id) {
 		Equipement equipement = equipementServ.findById(id);
 
 		if (equipement == null)
-			return ResponseEntity.notFound().build();
+		return ResponseEntity.notFound().build();
 		equipementServ.removeById(id);
 		return ResponseEntity.ok().build();
 	}

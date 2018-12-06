@@ -1,10 +1,16 @@
 package co.sumo.web.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "terrain")
@@ -22,6 +28,17 @@ public class Terrain {
 	private String urlPhotoTerrain;
 	
 	
+	@OneToMany(mappedBy = "terrain")
+	private List <Sport> sports;
+	
+	public List<Sport> getSports() {
+		return sports;
+	}
+
+	public void setSports(List<Sport> sports) {
+		this.sports = sports;
+	}
+
 	public String getDimensionsTerrain() {
 		return dimensionsTerrain;
 	}

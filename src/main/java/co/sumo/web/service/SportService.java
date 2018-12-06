@@ -7,21 +7,27 @@ import org.springframework.stereotype.Service;
 
 import co.sumo.web.model.Sport;
 import co.sumo.web.repository.SportRepository;
+import co.sumo.web.repository.TerrainRepository;
 
 @Service
 
 public class SportService {
 	
 	//injection de dependance grace à l'annotation Autowired et l'utilisation d'un constructeur
-	@Autowired
-	
+	@Autowired	
 	//On passe un objet de type SportRepository en attribut de notre classe SportService
 	private SportRepository sportRepo;
 	
+	@Autowired
+	private TerrainRepository terrainRepo;
+	
 	//On utilise un constructeur pour set l'attribut en variable de classe
-	SportService(SportRepository sportRepo){
+	SportService(SportRepository sportRepo, TerrainRepository terrainRepo){
 		this.sportRepo = sportRepo;
+		this.terrainRepo = terrainRepo;
 	}
+	
+	
 	
 	// Méthode findAllSport en liste pour obtenir tous les sports
 	public List<Sport> findAllSport() {

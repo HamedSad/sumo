@@ -45,6 +45,8 @@ public class TerrainController {
 		return terrainServ.findById(id);
 	}
 	
+	
+	
 	@CrossOrigin
 	@PostMapping("/terrain")
 	Terrain saveTerrain(@Valid @RequestBody Terrain terrain) {
@@ -84,6 +86,12 @@ public class TerrainController {
 			return ResponseEntity.notFound().build();
 		terrainServ.removeById(id);
 		return ResponseEntity.ok().build();
+	}
+	
+	@CrossOrigin
+	@GetMapping("/terrain/sport/{idSport}")
+	public Terrain getSportsByTerrain(@PathVariable(value = "idSport") long idSport) {
+		return terrainServ.findSportsByTerrain(idSport);
 	}
 	
 }

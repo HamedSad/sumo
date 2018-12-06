@@ -1,18 +1,26 @@
 package co.sumo.web.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table (name="sport")
 
 public class Sport {
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,23 +28,32 @@ public class Sport {
 	
 	private String nomSport;
 	
+	@JsonIgnore
 	@ManyToOne
+	@JoinColumn(name = "terrain_id")
 	private Terrain terrain;
 	
 	private String descriptionSport;
 	
 	private String urlImageSport;
 	
-	@ManyToOne
-	Commentaire commentaire;
+	
+	@OneToMany(mappedBy = "sport")	
+	@OrderBy("dateCommentaire desc")
+	private List <Commentaire> commentaires;
 	
 	private String saisonSport;
 	
 	private String reglesSport;
 	
-	@ManyToOne
-	private Equipement equipement;
+	
+	@OneToMany(mappedBy = "sport")
+	private List <Equipement> equipements;
 
+	
+	//@ManyToOne
+	//private Equipement equipement;
+	
 	public Terrain getTerrain() {
 		return terrain;
 	}
@@ -52,23 +69,7 @@ public class Sport {
 	public void setDescriptionSport(String descriptionSport) {
 		this.descriptionSport = descriptionSport;
 	}
-
-	public Commentaire getCommentaire() {
-		return commentaire;
-	}
-
-	public void setCommentaire(Commentaire commentaire) {
-		this.commentaire = commentaire;
-	}
-
-	public Equipement getEquipement() {
-		return equipement;
-	}
-
-	public void setEquipement(Equipement equipement) {
-		this.equipement = equipement;
-	}
-
+	
 	public long getIdSport() {
 		return idSport;
 	}
@@ -83,6 +84,22 @@ public class Sport {
 
 	public void setIdSport(long idSport) {
 		this.idSport = idSport;
+	}
+
+	public List<Commentaire> getCommentaires() {
+		return commentaires;
+	}
+
+	public void setCommentaires(List<Commentaire> commentaires) {
+		this.commentaires = commentaires;
+	}
+
+	public List<Equipement> getEquipements() {
+		return equipements;
+	}
+
+	public void setEquipements(List<Equipement> equipements) {
+		this.equipements = equipements; 
 	}
 
 	public String getNomSport() {

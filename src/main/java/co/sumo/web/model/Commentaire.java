@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +23,14 @@ public class Commentaire {
 	private String texteCommentaire;
 	
 	private Date dateCommentaire;
+	
+	
+	//Jointure avec la table sport
+	@ManyToOne
+	@JoinColumn(name= "sport_id")
+	private Sport sport;
+	
+	
 
 	public long getIdCommentaire() {
 		return idCommentaire;
