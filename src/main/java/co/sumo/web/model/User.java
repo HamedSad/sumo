@@ -32,6 +32,16 @@ public class User {
 	
 	private String passwordUser;
 	
+	private String passwordUser2;
+	
+	public String getPasswordUser2() {
+		return passwordUser2;
+	}
+
+	public void setPasswordUser2(String passwordUser2) {
+		this.passwordUser2 = passwordUser2;
+	}
+
 	public String getPasswordUser() {
 		return passwordUser;
 	}
