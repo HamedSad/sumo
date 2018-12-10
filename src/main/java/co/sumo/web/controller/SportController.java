@@ -51,7 +51,7 @@ public class SportController {
 	}
 	
 	@CrossOrigin
-	@PostMapping("/sport")
+	@PostMapping("/sport/add-sport")
 	Sport saveSport(@Valid @RequestBody Sport sport) {
 		return sportServ.saveSport(sport);
 	}
@@ -87,6 +87,7 @@ public class SportController {
 	
 	}
 	
+	//Méthode pour supprimer un spor en fonction de son id
 	@CrossOrigin
 	@DeleteMapping("/sport/{id}")
 
@@ -98,7 +99,4 @@ public class SportController {
 		sportServ.removeById(id);
 		return ResponseEntity.ok().build();
 	}
-
-	
-	
 }

@@ -82,10 +82,10 @@ public class UserController {
 	}
 
 
-	// ResponseEntity reponse qui va etre donnée apres le update	
+	 //ResponseEntity reponse qui va etre donnée apres le update	
 	//User updatetUserById(@PathVariable(value="id")long id, User user ) {
-		//user = userServ.findById(id);
-		//return userServ.saveUser(user);
+	//	user = userServ.findById(id);
+	//	return userServ.saveUser(user);
 	
 	//}
 

@@ -13,6 +13,4 @@ import co.sumo.web.model.Sport;
 
 public interface CommentaireRepository extends JpaRepository <Commentaire, Long> {
 	
-
-
 }

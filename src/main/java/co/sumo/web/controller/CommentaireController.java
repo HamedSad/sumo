@@ -34,7 +34,7 @@ public class CommentaireController {
 	}
 	
 	@CrossOrigin
-	@GetMapping("/commentaire/all")
+	@GetMapping("/all-comments")
 	public List<Commentaire> findCommentaire() {
 		return commentaireServ.findAllCommentaire();
 	}
@@ -45,8 +45,8 @@ public class CommentaireController {
 		return commentaireServ.findById(id);
 	}
 	
+	//Méthode pour obtenir le commentaire en fonction de l'id du sport
 	@CrossOrigin
-	//pour obtenir le commentaire en fonction de l'id du sport
 	@GetMapping("sport/commentaire/{idSport}") 
 	public List<Commentaire> getCommentaireByIdSport(@PathVariable(value = "idSport") long idSport) {
 		return commentaireServ.findCommentaireByIdSport(idSport);
@@ -57,6 +57,13 @@ public class CommentaireController {
 	Commentaire saveCommentaire(@Valid @RequestBody Commentaire commentaire) {
 		return commentaireServ.saveCommentaire(commentaire);
 	}
+	
+	//Méthode pour poster un commentaire en fonction de l'Id d'un sport
+	//@CrossOrigin
+	//@PostMapping("/add-commentaire/{idSport}")
+	//public Commentaire getCommentaireBySport(@PathVariable(value = "idSport") long idSport) {
+	//	return commentaireServ.saveCommentaireBySport(idSport);
+	//}
 	
 	@CrossOrigin
 	@PutMapping("/commentaire/{id}")

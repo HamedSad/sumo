@@ -20,7 +20,6 @@ public class CommentaireService {
 	
 	//injection de dependance grace à l'annotation Autowired et l'utilisation d'un constructeur
 	@Autowired
-	
 	//On passe un objet de type SportRepository en attribut de notre classe SportService
 	private CommentaireRepository commentaireRepo;
 	
@@ -36,10 +35,16 @@ public class CommentaireService {
 	}
 	
 	//Méthode pour récupérer les commentaires en fonction d'un IdSport
-	public List<Commentaire> findCommentaireByIdSport(Long idSport){
-		
+	public List<Commentaire> findCommentaireByIdSport(Long idSport){		
 		Sport sport = sportRepo.findOne(idSport);
 		return sport.getCommentaires();
+	}
+	
+	//Méthode pour poster un commentaire en fonction d'un IdSport
+	public Commentaire saveCommentaireBySport(Long idSport) {
+		Sport sport = sportRepo.findOne(idSport);
+		Commentaire commentaire = commentaireRepo.findOne(idSport);
+		return commentaireRepo.save(commentaire);
 	}
 	
 	//Méthode findById pour récupérer un commentaire

@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 @Entity
@@ -22,16 +23,14 @@ public class Commentaire {
 	
 	private String texteCommentaire;
 	
+	@OrderBy("dateCommentaire desc")
 	private Date dateCommentaire;
-	
 	
 	//Jointure avec la table sport
 	@ManyToOne
 	@JoinColumn(name= "sport_id")
 	private Sport sport;
 	
-	
-
 	public long getIdCommentaire() {
 		return idCommentaire;
 	}
@@ -56,6 +55,4 @@ public class Commentaire {
 		this.dateCommentaire = dateCommentaire;
 	}
 	
-	
-
 }

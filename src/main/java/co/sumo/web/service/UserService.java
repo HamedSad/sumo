@@ -14,9 +14,7 @@ import co.sumo.web.repository.UserRepository;
 //à chacune avec algorytmie et conditions
 @Service
 public class UserService {
-	
-	
-	
+		
 	//injection de dependance grace à l'annotation Autowired et l'utilisation d'un constructeur
 	@Autowired
 	
@@ -28,12 +26,14 @@ public class UserService {
 		this.userRepo = userRepo;
 	}
 	
+	//Méthodes
+	
 	//Méthode findAllUsers en liste pour obtenir tous les utilisateurs  
 	public List<User> findAllUsers(){
 		return userRepo.findAll();
 	}
 	
-	//Méthode findById pour récupérer un user 
+	//Méthode findById pour récupérer un user en fonction de son Id
 	public User findById(Long id) {
 		return userRepo.findOne(id);
 	}
