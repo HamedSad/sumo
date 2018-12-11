@@ -1,3 +1,4 @@
+
 package co.sumo.web.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
