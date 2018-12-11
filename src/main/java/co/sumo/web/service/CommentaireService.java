@@ -23,6 +23,8 @@ public class CommentaireService {
 	//On passe un objet de type SportRepository en attribut de notre classe SportService
 	private CommentaireRepository commentaireRepo;
 	
+	//**
+	
 	//On utilise un constructeur pour set l'attribut en variable de classe
 	CommentaireService (CommentaireRepository commentaireRepo, SportRepository sportRepo){
 		this.commentaireRepo = commentaireRepo;
