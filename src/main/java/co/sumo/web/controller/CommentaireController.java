@@ -59,14 +59,16 @@ public class CommentaireController {
 	}
 	
 	//Méthode pour poster un commentaire en fonction de l'Id d'un sport
-	//@CrossOrigin
-	//@PostMapping("/add-commentaire/{idSport}")
-	//public Commentaire getCommentaireBySport(@PathVariable(value = "idSport") long idSport) {
-	//	return commentaireServ.saveCommentaireBySport(idSport);
-	//}
+	@CrossOrigin
+	@PostMapping("/sport/add-comment/{idSport}")
+	public Commentaire saveCommentaireBySport(@PathVariable(value = "idSport") long idSport, @Valid @RequestBody Commentaire commentaire) {
+		return commentaireServ.saveCommentaireBySport(idSport, commentaire);
+	}
 	
 	@CrossOrigin
 	@PutMapping("/commentaire/{id}")
+	
+	//Quand on recupere un corps complet à partir de l'url on ajoute un @RequestBody
 	ResponseEntity<Commentaire> updateCommentaire(@PathVariable(value = "id") long id, @Valid @RequestBody Commentaire commentaire){
 	
 	Commentaire commentaireToUpdate = commentaireServ.findById(id);

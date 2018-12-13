@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import co.sumo.web.model.Commentaire;
 import co.sumo.web.model.Sport;
 import co.sumo.web.repository.SportRepository;
 import co.sumo.web.repository.TerrainRepository;
@@ -26,8 +27,6 @@ public class SportService {
 		this.sportRepo = sportRepo;
 		this.terrainRepo = terrainRepo;
 	}
-	
-	
 	
 	// Méthode findAllSport en liste pour obtenir tous les sports
 	public List<Sport> findAllSport() {

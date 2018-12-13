@@ -43,11 +43,12 @@ public class CommentaireService {
 	}
 	
 	//Méthode pour poster un commentaire en fonction d'un IdSport
-	public Commentaire saveCommentaireBySport(Long idSport) {
+	public Commentaire saveCommentaireBySport(Long idSport, Commentaire commentaire) {
 		Sport sport = sportRepo.findOne(idSport);
-		Commentaire commentaire = commentaireRepo.findOne(idSport);
+		commentaire.setSport(sport);
 		return commentaireRepo.save(commentaire);
-	}
+		
+		}
 	
 	//Méthode findById pour récupérer un commentaire
 	public Commentaire findById(Long commentaire) {

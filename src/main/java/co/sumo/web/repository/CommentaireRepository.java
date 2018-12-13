@@ -12,5 +12,6 @@ import co.sumo.web.model.Sport;
 @Repository
 
 public interface CommentaireRepository extends JpaRepository <Commentaire, Long> {
-	
+	//public Commentaire saveCommentaireBySport(Sport idSport);
+
 }

@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table (name= "commentaire")
 
@@ -29,6 +31,7 @@ public class Commentaire {
 	//Jointure avec la table sport
 	@ManyToOne
 	@JoinColumn(name= "sport_id")
+	@JsonIgnore
 	private Sport sport;
 	
 	public long getIdCommentaire() {
@@ -54,5 +57,12 @@ public class Commentaire {
 	public void setDateCommentaire(Date dateCommentaire) {
 		this.dateCommentaire = dateCommentaire;
 	}
-	
+
+	public Sport getSport() {
+		return sport;
+	}
+
+	public void setSport(Sport sport) {
+		this.sport = sport;
+	}	
 }
