@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.sumo.web.model.Commentaire;
 import co.sumo.web.model.Sport;
 import co.sumo.web.repository.SportRepository;
 import co.sumo.web.repository.TerrainRepository;
@@ -14,7 +13,7 @@ import co.sumo.web.repository.TerrainRepository;
 
 public class SportService {
 	
-	//injection de dependance grace à l'annotation Autowired et l'utilisation d'un constructeur
+	//Injection de dependance grace à l'annotation Autowired et l'utilisation d'un constructeur
 	@Autowired	
 	//On passe un objet de type SportRepository en attribut de notre classe SportService
 	private SportRepository sportRepo;

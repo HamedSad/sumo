@@ -21,8 +21,9 @@ import co.sumo.web.model.Equipement;
 import co.sumo.web.service.CommentaireService;
 
 @RestController
+//il enverra des status à mes requetes
 @RequestMapping("/api")
-
+//ajouté derriere l url du serveur hote pour pouvoir acceder à ce controller
 public class CommentaireController {
 	
 	@Autowired

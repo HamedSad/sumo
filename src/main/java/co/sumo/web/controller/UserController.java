@@ -107,14 +107,8 @@ public class UserController {
 	if(user.getEmailUser() !=null)
 		userToUpdate.setEmailUser(user.getEmailUser());
 	
-	
-	
 	User updatedUser = userServ.saveUser(userToUpdate);
 	return ResponseEntity.ok(updatedUser);
 	
 	}
-	
-	
-	
-	
 }

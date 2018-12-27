@@ -25,7 +25,6 @@ public class Commentaire {
 	
 	private String texteCommentaire;
 	
-	@OrderBy("dateCommentaire desc")
 	private Date dateCommentaire;
 	
 	//Jointure avec la table sport

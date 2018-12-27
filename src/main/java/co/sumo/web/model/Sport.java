@@ -21,7 +21,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Sport {
 	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long idSport;
@@ -37,15 +36,13 @@ public class Sport {
 	
 	private String urlImageSport;
 	
-	
 	@OneToMany(mappedBy = "sport")	
-	@OrderBy("dateCommentaire desc")
+	@OrderBy("idCommentaire desc")
 	private List <Commentaire> commentaires;
 	
 	private String saisonSport;
 	
 	private String reglesSport;
-	
 	
 	@OneToMany(mappedBy = "sport")
 	private List <Equipement> equipements;
@@ -125,8 +122,5 @@ public class Sport {
 	public void setReglesSport(String reglesSport) {
 		this.reglesSport = reglesSport;
 	}
-
-
-	
 
 }

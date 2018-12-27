@@ -57,7 +57,7 @@ public class SportController {
 	}
 	
 	@CrossOrigin
-	@PutMapping("/sport/{id}")
+	@PutMapping("/sport/single-change/{id}")
 	ResponseEntity<Sport> updateSport(@PathVariable(value = "id") long id, @Valid @RequestBody Sport sport){
 	
 		Sport sportToUpdate = sportServ.findById(id);
@@ -89,7 +89,7 @@ public class SportController {
 	
 	//Méthode pour supprimer un spor en fonction de son id
 	@CrossOrigin
-	@DeleteMapping("/sport/{id}")
+	@DeleteMapping("/sport/{id}/sport-suppr")
 
 	ResponseEntity<Sport> deleteSport(@PathVariable(value = "id") long id) {
 		Sport sport = sportServ.findById(id);
